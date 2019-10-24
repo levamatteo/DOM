@@ -334,17 +334,22 @@ let roster = [
     randomFact: "im grumpy"
   }
 ]
-
+let memes = []
 let randomIndex;
 let animating = false;
+ function preload(){
 
+   for(let i = 0; i <= 2; i++){
+     memes[i] = loadImage(`Assets/meme_${i}.jpg`)
+   }
+ }
 function setup() {
   createCanvas(400, 400);
     background(220);
 textSize(25)
 
 text("click to randomize", 50, 50);
-
+console.log(memes);
 
 }
 
