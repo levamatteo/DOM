@@ -224,6 +224,7 @@ let roster = [
     lastname: "Tang",
     favcolor: "black",
     animal: "dog",
+    book: "The Stranger",
     movie: "iron man123",
     game: "csgo",
     superHero: "iron man",
@@ -337,43 +338,57 @@ let roster = [
 let memes = []
 let randomIndex;
 let animating = false;
- function preload(){
+let imageCounter = 0;
 
-   for(let i = 0; i <= 2; i++){
-     memes[i] = loadImage(`Assets/meme_${i}.jpg`)
-   }
- }
+function preload() {
+
+  for (let i = 0; i <= 3; i++) {
+    memes[i] = loadImage(`Assets/lark_${i}.JPG`)
+  }
+}
+
 function setup() {
   createCanvas(400, 400);
-    background(220);
-textSize(25)
+  background(220);
+  textSize(25)
+  imageMode(CENTER);
+frameRate(12);
 
-text("click to randomize", 50, 50);
-console.log(memes);
+  text("click to randomize", 50, 50);
+  console.log(memes);
 
 }
 
 function draw() {
 
-if(animating== true){
-  ellipse(random(width), random(height), random(50,150))
-}
+  if (animating == true) {
+    console.log(imageCounter)
+    clear();
+    image(memes[imageCounter], width / 2, height / 2);
+    if (imageCounter < memes.length - 1) {
+      imageCounter++;
+    } else {
+      imageCounter = 0;
+    }
+
+  }
 }
 
-function randomizer(){
+function randomizer() {
   animating = false;
-    if (roster[0]){
-  background(random(255))
+  if (roster[0]) {
+    // background(random(255))
+    clear();
     randomIndex = int(random(roster.length));
-      text(roster[randomIndex].book, 50, 50);
-      roster.splice(randomIndex, 1);
-  } else{
+    text(roster[randomIndex].book, 50, 50);
+    roster.splice(randomIndex, 1);
+  } else {
     background(random(255))
     text("nothing left!", 50, 50);
   }
 }
 
 function mousePressed() {
-animating = true;
-setTimeout(randomizer, 2000);
+  animating = true;
+  setTimeout(randomizer, 2000);
 }
