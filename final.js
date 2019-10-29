@@ -10,13 +10,13 @@ function preload() {
   img1 = loadImage('Assets/gmail.jpg');
   img2 = loadImage('Assets/error.png');
   soundFormats('mp3', 'ogg');
-  myError = loadSound('assets/errorSound.mp3');
+  myError = loadSound('Assets/errorSound.mp3');
 }
 
 function setup() {
   adBlock = select('#adBlocked')
   adBlock.hide();
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1920, 1080);
   background(img1)
   button = createButton('adBlocker');
   button.position(1750, 40);
@@ -30,7 +30,7 @@ function draw() {
 function changeBG() {
 
   background(img2);
-  myError.setVolume(0.1);
+  myError.setVolume(.5);
   myError.play();
   adBlock.show();
 }
