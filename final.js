@@ -10,7 +10,7 @@ function preload() {
   img1 = loadImage('Assets/gmail.jpg');
   img2 = loadImage('Assets/error.png');
   soundFormats('mp3', 'ogg');
-  myError = loadSound('Assets/errorSound.mp3');
+  myError = loadSound('assets/errorSound.mp3');
 }
 
 function setup() {
