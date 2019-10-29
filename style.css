@@ -1,7 +1,17 @@
 html, body {
   margin: 0;
   padding: 0;
+
 }
 canvas {
   display: block;
+}
+#adBlocked{
+  font-size: 30pt
+  text-align: center;
+  color: yellow;
+}
+.spam{
+  width: 100%
+  height: auto
 }
